@@ -94,13 +94,13 @@ int main()
 	int n;
 	cout<<"Enter the number of Students : ";
 	cin>>n;
-	Student ob;
+	Student ob[n];
 	for(int i=0;i<n;i++)
 	{
-		ob.input();
-		ob.average();
-		ob.display();
-		ob.calcGrade();
+		ob[i].input();
+		ob[i].average();
+		ob[i].display();
+		ob[i].calcGrade();
 		cout<<endl<<endl<<endl;
 	}
 	return(0);
