@@ -6,7 +6,7 @@ class bank
 {
     private:
     string cust_name;
-    string passw[50];
+    string passw[100];
     int acc_no;
     long balance;
     string acc_type;
