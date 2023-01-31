@@ -1,11 +1,12 @@
 #include<iostream>
 #include<string>
-int srno=100;
+int srno=1;
 using namespace std;
 class bank
 {
     private:
     string cust_name;
+    string passw[50];
     int acc_no;
     long balance;
     string acc_type;
@@ -15,15 +16,29 @@ class bank
     void deposit(void);
     void balance_check(void);
     void statement(void);
+    string ret_pass()
+    {
+        return passw[srno];
+    }
 };
 void bank::addacc(void)
 {
     acc_no=srno;
+    string password;
     cout<<"Enter the Details:"<<endl;
     cout<<"Enter the Accounter Holder Name:";
     cin>>cust_name;
-    cout<<"Enter the Account Type:";
+    cout<<"Enter the Account Type(Standard/Savings/Current/NRI):";
     cin>>acc_type;
+    cout<<"Create  Account pin/password: ";
+    cin>>passw[srno];
+    cout<<"Re-enter Account pin/password: ";
+    cin>>password;
+    while(password!=passw[srno])
+    {
+        cout<<"The entered password do not match, Please re-enter password:";
+        cin>>password;
+    }
     cout<<"Enter the balance amount greater than 500:";
     cin>>balance;
     while(balance<500)
@@ -80,7 +95,8 @@ void bank::statement(void)
 }
 int main()
 {
-    bank ob[2000];
+    bank ob[100];
+    string password;
     int flag=1;
     int no=0,n;
     while(flag==1)
@@ -99,7 +115,15 @@ int main()
         {
             cout<<"Enter your Account Number:";
             cin>>no;
-            while((no<100)&&(no>srno))
+            cout<<"Enter your Passowrd:";
+            cin>>password;
+            if(password!=ob[srno].ret_pass())
+            {
+                cout<<"Wrong password, Please enter correct Password:";
+                cin>>password;
+            }
+
+            while((no<1)&&(no>srno))
             {
                 cout<<"Incorrect Account Number, Please enter the correct Account Number:";
                 cin>>no;
