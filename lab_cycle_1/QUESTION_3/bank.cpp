@@ -38,18 +38,20 @@ void bank::withdraw(void)
 {
     int amt;
     cout<<"----------WITHDRAWAL----------"<<endl;
-    cout<<"The Account Balance is:"<<balance;
+    cout<<"The Account Balance is:"<<balance<<endl;
     cout<<"Enter the amount to be withdrawn:";
     cin>>amt;
-    while(balance-amt>500)
+    while(balance-amt<500)
     {
         cout<<"The balance will be less than 500, Withdrawal not Possible!"<<endl;
         cout<<"Enter lesser amount:";
         cin>>amt;
     }
-    balance=balance-amt;
-    if(balance>0)
-    cout<<amt<<"Rupees has been withdrawn, New Balance="<<balance<<"Rupees"<<endl;
+    if(balance-amt>500)
+    {
+        balance =balance -amt;
+        cout<<amt<<"Rupees has been withdrawn, New Balance="<<balance<<"Rupees"<<endl;
+    }
     else
     cout<<"Insuficient Balance, Withdrawal not possible!"<<endl;
 }
