@@ -12,7 +12,7 @@ class code
     {
         id=a;
     }
-    code(const code &a)
+    code(code &a)
     {
         id =a.id;
     }
