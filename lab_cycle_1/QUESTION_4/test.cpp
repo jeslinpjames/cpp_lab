@@ -1,72 +1,39 @@
 #include<iostream>
-#include<string>
 using namespace std;
-class String
+class code
 {
-    private:
-    string s;
-    int len;
+    int id;
     public:
-    void strlength(void)
+    code()
     {
-        len=s.length();
+        id=0;
     }
-    void displaylen(void)
+    code(int a)
     {
-        cout<<len;
+        id=a;
     }
-    void concatinate(String,String,String&);
-    void compare(String,String);
-    void accept()
+    code(const code &a)
     {
-        cout&#8203;`oaicite:{"index":0,"invalid_reason":"Malformed citation <<\"Enter the string:\";\n        cin>>"}`&#8203;s;
+        id =a.id;
     }
     void display()
     {
-        cout<<s;
+        cout<<id<<endl;
     }
 };
-void String::concatinate(String a, String b,String &c)
-{
-    c.s=a.s+b.s;
-}
-void String::compare(String a,String b)
-{
-    int x=a.s.length();
-    int y=b.s.length();
-    if(x>y)
-    {
-        cout<<a.s<<" is greater than "<<b.s<<endl;
-    }
-    else if(y>x)
-    {
-        cout<<b.s<<" is greater than "<<a.s<<endl;
-    }
-    else
-    cout<<"Both the strings are equal in length."<<endl;
-}
+
 int main()
 {
-    String a,b,c,d;
-    cout<<"Enter the first string:";
-    a.accept();
-    cout<<"Enter the second string:";
-    b.accept();
-    cout<<"---------RESULT--------"<<endl;
-    cout<<"First String : "<<a.display()<<endl;
-    cout<<"Second String : "<<b.display()<<endl;
-    d.concatinate(a,b,c);
-    cout<<"Strings after concatination : "<<c.display()<<endl;
-    cout<<"The length of the first String is :";
-    a.strlength();
-    cout<<a.displaylen()<<endl;
-    cout<<"The length of the second String is : ";
-    b.strlength();
-    cout<<b.displaylen()<<endl;
-    cout<<"The length of the concatinated String is : ";
-    c.strlength();
-    cout<<c.displaylen()<<endl;
-    cout<<"The result of the comparision : ";
-    c.compare(a,b);
+    code I1;
+    code I2(101);
+    code I3(I2);
+    code I4=I2;
+    code I5;
+    I5=I2;
+    I5.display();
+    I1.display();
+    I2.display();
+    I3.display();
+    I4.display();
     return(0);
 }
