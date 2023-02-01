@@ -1,30 +1,42 @@
 #include<iostream>
 using namespace std;
-class time
+class Time
 {
     private:
     int seconds,minutes,hour;
     public:
-    time(){
+    Time(){
         seconds=0;
         minutes=0;
         hour =0;
     }
     void accept();
     void display();
-    void sum(time,time);
+    void sum(Time,Time);
 };
-
-void time::accept()
+int main()
 {
-    cout<<"Enter time in hours, minutes, seconds : ";
+    Time t1,t2,t3;
+    cout<<"Enter the frist time : ";
+    t1.accept();
+    cout<<"Enter the second time : ";
+    t2.accept();
+    t3.sum(t1,t2);
+    cout<<"The sum of both the time is : "<<endl;
+    t3.display();
+    return 0;
+}
+void Time::accept()
+{
+    cout<<"\n Enter time. ";
+    cout<<"\n Hours : ";
     cin>>hour;
-    cout<<"-";
+    cout<<"Minutes : ";
     cin>>minutes;
-    cout<<"-";
+    cout<<"Seconds : ";
     cin>>seconds;
 }
-void time::sum(time a,time b)
+void Time::sum(Time a,Time b)
 {
     seconds=a.seconds+b.seconds;
     minutes=seconds/60;
@@ -34,19 +46,7 @@ void time::sum(time a,time b)
     minutes = minutes%60;
     hour= hour+a.hour+b.hour;
 }
-void time::display()
+void Time::display()
 {
     cout<<hour<<" hours "<<minutes<<" minutes "<<seconds<<" seconds."<<endl;
-}
-int main()
-{
-    time t1,t2,t3;
-    cout<<"Enter the frist time : ";
-    t1.accept();
-    cout<<"Enter the second time : ";
-    t2.accept();
-    t3.sum(t1,t2);
-    cout<<"The sum of both the time is : "<<endl;
-    t3.display();
-    return 0;
 }
