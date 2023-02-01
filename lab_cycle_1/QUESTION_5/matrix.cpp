@@ -29,33 +29,19 @@ class Matrix
         delete [] a;
         cout<<"Memory Released"<<endl;
     }
-    void display_sum(Matrix a, Matrix b);
+    void sum(Matrix a, Matrix b);
     void accept_elements();
+    void display();
 };
 
-void Matrix::display_sum(Matrix x, Matrix y)
+void Matrix::sum(Matrix x, Matrix y)
 {
-    if (x.r != y.r || x.c != y.c)
-    {
-        cout<<"Matrices must have the same number of rows and columns."<<endl;
-        return;
-    }
-    Matrix sum(r, c);
-    for (int i=0; i<r; i++)
+   for (int i=0; i<r; i++)
     {
         for (int j=0; j<c; j++)
         {
-            sum.a[i][j]=x.a[i][j]+y.a[i][j];
+            a[i][j]=x.a[i][j]+y.a[i][j];
         }
-    }
-    cout<<"The sum of the two matrices is: "<<endl;
-    for (int i=0; i<r; i++)
-    {
-        for (int j=0; j<c; j++)
-        {
-            cout<<sum.a[i][j]<<" ";
-        }
-        cout<<endl<<" ";
     }
 }
 
@@ -69,19 +55,40 @@ void Matrix::accept_elements()
         }
     }
 }
-
+void Matrix::display()
+{
+    for (int i=0; i<r; i++)
+    {
+        for (int j=0; j<c; j++)
+        {
+            cout<<a[i][j]<<" ";
+        }
+        cout<<endl<<" ";
+    }
+}
 int main()
 {
-    int r,c;
-    cout<<"Enter the number of rows and columns:"<<endl;
-    cin>>r>>c;
-    Matrix ob1(r,c);
+    int r1,c1,r2,c2;
+    cout<<"Enter the number of rows and columns of the first matrix : "<<endl;
+    cin>>r1>>c1;
+    Matrix ob1(r1,c1);
     cout<<"Enter the values of the first matrix: "<<endl;
     ob1.accept_elements();
-    Matrix ob2(r,c);
+    cout<<"Enter the number of rows and colums of the second matrix : "<<endl;
+    cin>>r2>>c2;
+    Matrix ob2(r2,c2);
     cout<<"Enter the values of the second matrix: "<<endl;
     ob2.accept_elements();
     Matrix ob3;
-    ob3.display_sum(ob1, ob2);
+     if (r1 != r2 || c1 != c2)
+    {
+        cout<<"Matrices must have the same number of rows and columns."<<endl;
+    }
+    else
+    {
+        ob3.sum(ob1, ob2);
+        cout<<"The sum of the two matrices is: "<<endl;
+        ob3.display();
+    }
     return 0;
 }
