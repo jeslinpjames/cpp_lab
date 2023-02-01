@@ -6,9 +6,9 @@ class code
     public:
     code()
     {
-        id=0;
+        id=22;
     }
-    code(int a)
+    code (int a)
     {
         id=a;
     }
@@ -29,6 +29,7 @@ int main()
     code I3(I2);
     code I4=I2;
     code I5;
+    I5.display();
     I5=I2;
     I5.display();
     I1.display();

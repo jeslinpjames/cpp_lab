@@ -7,7 +7,7 @@ class Matrix
     int **a;
     int r,c;
     public:
-    Matrix() {}
+    Matrix(){}
     Matrix(int x,int y)
     {
         cout<<"Array initialized by constructor."<<endl;
@@ -63,7 +63,7 @@ void Matrix::display()
         {
             cout<<a[i][j]<<" ";
         }
-        cout<<endl<<" ";
+        cout<<endl;
     }
 }
 int main()
@@ -79,7 +79,7 @@ int main()
     Matrix ob2(r2,c2);
     cout<<"Enter the values of the second matrix: "<<endl;
     ob2.accept_elements();
-    Matrix ob3;
+    Matrix ob3(r1,c1);
      if (r1 != r2 || c1 != c2)
     {
         cout<<"Matrices must have the same number of rows and columns."<<endl;
