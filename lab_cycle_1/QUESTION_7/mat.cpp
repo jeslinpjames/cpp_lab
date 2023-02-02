@@ -4,7 +4,7 @@ class Mat
 {
     private:
     int **a;
-    int sr,c;
+    int r,c;
     public:
     Mat(){}
     Mat(int x,int y)
