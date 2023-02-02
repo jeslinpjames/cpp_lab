@@ -25,8 +25,10 @@ class Matrix
     ~Matrix()
     {
         for (int i=0; i<r; i++)
-            delete [] a[i];
-        delete [] a;
+        {
+            delete  a[i];
+        }
+        delete a;
         cout<<"Memory Released"<<endl;
     }
     void sum(Matrix a, Matrix b);

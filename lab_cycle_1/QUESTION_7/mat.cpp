@@ -4,7 +4,7 @@ class Mat
 {
     private:
     int **a;
-    int r,c;
+    int sr,c;
     public:
     Mat(){}
     Mat(int x,int y)
@@ -23,8 +23,8 @@ class Mat
     ~Mat()
     {
         for (int i=0; i<r; i++)
-            delete  a[i];
-        delete  a;
+            delete [] a[i];
+        delete [] a;
     }
     void matrix_add(Mat a, Mat b);
     void matrix_transpose(void);
@@ -57,17 +57,30 @@ void Mat::matrix_transpose(void)
 }
 void Mat::matrix_mult(Mat x, Mat y)
 { 
+    int sum;
    for (int i=0; i<r; i++)
     {
         for (int j=0; j<r; j++)
         {
             a[i][j]=0;
+            sum=0;
             for(int k=0;k<r;k++)
             {
-                a[i][j]=a[i][j]+x.a[i][k]*y.a[k][j];
+                sum=sum+x.a[i][k]*y.a[k][j];
+                a[i][j]=sum;
             }
         }
     }
+    cout<<"\nThe sum of the two matrices is: "<<endl;
+    for (int i=0; i<r; i++)
+    {
+        for (int j=0; j<c; j++)
+        {
+            cout<<a[i][j]<<" ";
+        }
+        cout<<endl;
+    }
+
 }
 // void Mat::matrix_determinant(void)
 // {
@@ -119,13 +132,14 @@ int main()
     else
     {
         ob3.matrix_add(ob1, ob2);
-        cout<<"\nThe sum of the two matrices is: "<<endl;
-        ob3.display();
+        //cout<<"\nThe sum of the two matrices is: "<<endl;
+        // cout<<"****";
+        // ob3.display();    
     }
     if((r1==c1)&&(r2==c2))
     {
-        Mat ob4(r1,c1);
         cout<<"The product of the two matrices is : ";
+        Mat ob4(r1,r1);
         ob4.matrix_mult(ob1,ob2);
         ob4.display();
     }
