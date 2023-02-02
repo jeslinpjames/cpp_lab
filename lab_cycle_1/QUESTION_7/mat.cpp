@@ -29,8 +29,8 @@ class Mat
     void matrix_add(Mat a, Mat b);
     void matrix_transpose(void);
     void matrix_mult(Mat a, Mat b);
-    void matrix_determinant(void);
-    void accept_elements(vid);
+    // void matrix_determinant(void);
+    void accept_elements(void);
     void display(void);
 };
 
@@ -59,7 +59,7 @@ void Mat::matrix_mult(Mat x, Mat y)
 { 
    for (int i=0; i<r; i++)
     {
-        for (int j=0; j<c; j++)
+        for (int j=0; j<r; j++)
         {
             a[i][j]=0;
             for(int k=0;k<r;k++)
@@ -69,12 +69,10 @@ void Mat::matrix_mult(Mat x, Mat y)
         }
     }
 }
-
-
-
-
-
-
+// void Mat::matrix_determinant(void)
+// {
+    
+// }
 void Mat::accept_elements()
 {
     for (int i=0; i<r; i++)
@@ -109,6 +107,10 @@ int main()
     Mat ob2(r2,c2);
     cout<<"Enter the values of the second matrix: "<<endl;
     ob2.accept_elements();
+    cout<<"The Transpose of the First Matrix : "<<endl;
+    ob1.matrix_transpose();
+    cout<<"\nThe Transpose of the Second Matrix : "<<endl;
+    ob2.matrix_transpose();
     Mat ob3(r1,c1);
      if (r1 != r2 || c1 != c2)
     {
@@ -116,9 +118,16 @@ int main()
     }
     else
     {
-        ob3.sum(ob1, ob2);
-        cout<<"The sum of the two matrices is: "<<endl;
+        ob3.matrix_add(ob1, ob2);
+        cout<<"\nThe sum of the two matrices is: "<<endl;
         ob3.display();
+    }
+    if((r1==c1)&&(r2==c2))
+    {
+        Mat ob4(r1,c1);
+        cout<<"The product of the two matrices is : ";
+        ob4.matrix_mult(ob1,ob2);
+        ob4.display();
     }
     return 0;
 }
