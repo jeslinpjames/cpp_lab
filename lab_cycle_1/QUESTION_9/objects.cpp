@@ -9,7 +9,7 @@ class objects
     {
         count++;
     }
-    void showno()
+    void showcount()
     {
         cout<<"Number of objects = "<<count<<endl;
     }
@@ -30,7 +30,7 @@ int main()
     do
     {
         objects ob;
-        ob.showno();
+        ob.showcount();
         delete ob;
         cout<<"Do you want to continue?"<<endl;
         cout<<"Enter 1 to continue and 2 to exit:";
