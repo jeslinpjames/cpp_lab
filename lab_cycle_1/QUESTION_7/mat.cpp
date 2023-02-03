@@ -29,19 +29,26 @@ class Mat
     void matrix_add(Mat a, Mat b);
     void matrix_transpose(void);
     void matrix_mult(Mat a, Mat b);
-    // void matrix_determinant(void);
     void accept_elements(void);
-    void display(void);
+    int matrix_trace(void);
 };
-
 void Mat::matrix_add(Mat x, Mat y)
 { 
+    int sum [x.r][x.c];
    for (int i=0; i<r; i++)
     {
         for (int j=0; j<c; j++)
         {
-            a[i][j]=x.a[i][j]+y.a[i][j];
+            sum[i][j]=x.a[i][j]+y.a[i][j];
         }
+    }
+    for (int i=0; i<r; i++)
+    {
+        for (int j=0; j<c; j++)
+        {
+            cout<<sum[i][j]<<" ";
+        }
+        cout<<endl;
     }
 }
 void Mat::matrix_transpose(void)
@@ -57,35 +64,37 @@ void Mat::matrix_transpose(void)
 }
 void Mat::matrix_mult(Mat x, Mat y)
 { 
-    int sum;
+    int sum[x.r][x.r];
    for (int i=0; i<r; i++)
     {
         for (int j=0; j<r; j++)
         {
-            a[i][j]=0;
-            sum=0;
+            sum[i][j]=0;
             for(int k=0;k<r;k++)
             {
-                sum=sum+x.a[i][k]*y.a[k][j];
-                a[i][j]=sum;
+                sum[i][j]+=x.a[i][k]*y.a[k][j];
             }
         }
     }
-    cout<<"\nThe sum of the two matrices is: "<<endl;
+    cout<<"\nThe Product of the two matrices is : "<<endl;
     for (int i=0; i<r; i++)
     {
         for (int j=0; j<c; j++)
         {
-            cout<<a[i][j]<<" ";
+            cout<<sum[i][j]<<" ";
         }
         cout<<endl;
     }
 
 }
-// void Mat::matrix_determinant(void)
-// {
-    
-// }
+int Mat::matrix_trace(void){
+    int sum =0;
+    for(int i=0;i<r;i++)
+    {
+        sum=sum+a[i][i];
+    }    
+    return sum;
+}
 void Mat::accept_elements()
 {
     for (int i=0; i<r; i++)
@@ -94,17 +103,6 @@ void Mat::accept_elements()
         {
             cin>>a[i][j];
         }
-    }
-}
-void Mat::display()
-{
-    for (int i=0; i<r; i++)
-    {
-        for (int j=0; j<c; j++)
-        {
-            cout<<a[i][j]<<" ";
-        }
-        cout<<endl;
     }
 }
 int main()
@@ -124,6 +122,10 @@ int main()
     ob1.matrix_transpose();
     cout<<"\nThe Transpose of the Second Matrix : "<<endl;
     ob2.matrix_transpose();
+    int trace1=ob1.matrix_trace();
+    cout<<"The Trace of the First Matrix : "<<trace1<<endl;
+    int trace2=ob2.matrix_trace();
+    cout<<"\nThe Trace of the Second Matrix : "<<trace2<<endl;
     Mat ob3(r1,c1);
      if (r1 != r2 || c1 != c2)
     {
@@ -131,17 +133,13 @@ int main()
     }
     else
     {
-        ob3.matrix_add(ob1, ob2);
-        //cout<<"\nThe sum of the two matrices is: "<<endl;
-        // cout<<"****";
-        // ob3.display();    
+        cout<<"\nThe sum of the two matrices is: "<<endl; 
+        ob3.matrix_add(ob1, ob2);        
     }
     if((r1==c1)&&(r2==c2))
     {
-        cout<<"The product of the two matrices is : ";
         Mat ob4(r1,r1);
         ob4.matrix_mult(ob1,ob2);
-        ob4.display();
     }
     return 0;
 }

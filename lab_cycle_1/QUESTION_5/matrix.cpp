@@ -28,24 +28,12 @@ class Matrix
         {
             delete  a[i];
         }
-        delete a;
+        delete []a;
         cout<<"Memory Released"<<endl;
     }
-    void sum(Matrix a, Matrix b);
     void accept_elements();
     void display();
 };
-
-void Matrix::sum(Matrix x, Matrix y)
-{
-   for (int i=0; i<r; i++)
-    {
-        for (int j=0; j<c; j++)
-        {
-            a[i][j]=x.a[i][j]+y.a[i][j];
-        }
-    }
-}
 
 void Matrix::accept_elements()
 {
@@ -70,27 +58,14 @@ void Matrix::display()
 }
 int main()
 {
-    int r1,c1,r2,c2;
-    cout<<"Enter the number of rows and columns of the first matrix : "<<endl;
+    int r1,c1;
+    cout<<"Enter the number of rows and columns of the matrix : "<<endl;
     cin>>r1>>c1;
-    Matrix ob1(r1,c1);
-    cout<<"Enter the values of the first matrix: "<<endl;
-    ob1.accept_elements();
-    cout<<"Enter the number of rows and colums of the second matrix : "<<endl;
-    cin>>r2>>c2;
-    Matrix ob2(r2,c2);
-    cout<<"Enter the values of the second matrix: "<<endl;
-    ob2.accept_elements();
-    Matrix ob3(r1,c1);
-     if (r1 != r2 || c1 != c2)
-    {
-        cout<<"Matrices must have the same number of rows and columns."<<endl;
-    }
-    else
-    {
-        ob3.sum(ob1, ob2);
-        cout<<"The sum of the two matrices is: "<<endl;
-        ob3.display();
-    }
+    Matrix ob(r1,c1);
+    cout<<"Enter the Elememts : "<<endl;
+    ob.accept_elements();
+    cout<<"The matrix that you have entered is : "<<endl;
+    ob.display();
     return 0;
 }
+                                 
