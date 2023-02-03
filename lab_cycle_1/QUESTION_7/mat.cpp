@@ -6,7 +6,7 @@ class Mat
     int **a;
     int r,c;
     public:
-    Mat(){}
+    // Mat(){}
     Mat(int x,int y)
     {
         r = x;
@@ -23,8 +23,9 @@ class Mat
     ~Mat()
     {
         for (int i=0; i<r; i++)
-            delete [] a[i];
-        delete [] a;
+            delete a[i];
+        delete a;
+        cout<<"Destroct called "<<endl;
     }
     void matrix_add(Mat a, Mat b);
     void matrix_transpose(void);
@@ -34,22 +35,23 @@ class Mat
 };
 void Mat::matrix_add(Mat x, Mat y)
 { 
-    int sum [x.r][x.c];
+    // int sum [x.r][x.c];
    for (int i=0; i<r; i++)
     {
         for (int j=0; j<c; j++)
         {
-            sum[i][j]=x.a[i][j]+y.a[i][j];
-        }
-    }
-    for (int i=0; i<r; i++)
-    {
-        for (int j=0; j<c; j++)
-        {
-            cout<<sum[i][j]<<" ";
+            cout<<x.a[i][j]+y.a[i][j]<<" ";
         }
         cout<<endl;
     }
+    // for (int i=0; i<r; i++)
+    // {
+    //     for (int j=0; j<c; j++)
+    //     {
+    //         cout<<sum[i][j]<<" ";
+    //     }
+    //     cout<<endl;
+    // }
 }
 void Mat::matrix_transpose(void)
 { 
@@ -126,7 +128,6 @@ int main()
     cout<<"The Trace of the First Matrix : "<<trace1<<endl;
     int trace2=ob2.matrix_trace();
     cout<<"\nThe Trace of the Second Matrix : "<<trace2<<endl;
-    Mat ob3(r1,c1);
      if (r1 != r2 || c1 != c2)
     {
         cout<<"Matrices must have the same number of rows and columns."<<endl;
@@ -134,11 +135,15 @@ int main()
     else
     {
         cout<<"\nThe sum of the two matrices is: "<<endl; 
-        ob3.matrix_add(ob1, ob2);        
+        Mat ob3(r1,c1);
+        ob3.matrix_add(ob1, ob2);
+        cout<<"******";        
     }
     if((r1==c1)&&(r2==c2))
     {
+        cout<<"------";
         Mat ob4(r1,r1);
+        cout<<"&&&&&";
         ob4.matrix_mult(ob1,ob2);
     }
     return 0;
