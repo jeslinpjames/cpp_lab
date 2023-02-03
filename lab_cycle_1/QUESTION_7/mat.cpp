@@ -6,7 +6,7 @@ class Mat
     int **a;
     int r,c;
     public:
-    // Mat(){}
+    Mat(){}
     Mat(int x,int y)
     {
         r = x;
@@ -24,34 +24,24 @@ class Mat
     {
         for (int i=0; i<r; i++)
             delete a[i];
-        delete a;
-        cout<<"Destroct called "<<endl;
+        delete a; 
     }
-    void matrix_add(Mat a, Mat b);
+    void matrix_add(Mat &a, Mat &b);
     void matrix_transpose(void);
-    void matrix_mult(Mat a, Mat b);
+    void matrix_mult(Mat &a, Mat &b);
     void accept_elements(void);
     int matrix_trace(void);
+    void display();
 };
-void Mat::matrix_add(Mat x, Mat y)
+void Mat::matrix_add(Mat &x, Mat &y)
 { 
-    // int sum [x.r][x.c];
    for (int i=0; i<r; i++)
     {
         for (int j=0; j<c; j++)
         {
-            cout<<x.a[i][j]+y.a[i][j]<<" ";
+            a[i][j]+=x.a[i][j]+y.a[i][j];
         }
-        cout<<endl;
     }
-    // for (int i=0; i<r; i++)
-    // {
-    //     for (int j=0; j<c; j++)
-    //     {
-    //         cout<<sum[i][j]<<" ";
-    //     }
-    //     cout<<endl;
-    // }
 }
 void Mat::matrix_transpose(void)
 { 
@@ -64,30 +54,19 @@ void Mat::matrix_transpose(void)
         cout<<endl;
     }
 }
-void Mat::matrix_mult(Mat x, Mat y)
+void Mat::matrix_mult(Mat &x, Mat &y)
 { 
-    int sum[x.r][x.r];
    for (int i=0; i<r; i++)
     {
         for (int j=0; j<r; j++)
         {
-            sum[i][j]=0;
+            a[i][j]=0;
             for(int k=0;k<r;k++)
             {
-                sum[i][j]+=x.a[i][k]*y.a[k][j];
+                a[i][j]+=x.a[i][k]*y.a[k][j];
             }
         }
     }
-    cout<<"\nThe Product of the two matrices is : "<<endl;
-    for (int i=0; i<r; i++)
-    {
-        for (int j=0; j<c; j++)
-        {
-            cout<<sum[i][j]<<" ";
-        }
-        cout<<endl;
-    }
-
 }
 int Mat::matrix_trace(void){
     int sum =0;
@@ -106,6 +85,17 @@ void Mat::accept_elements()
             cin>>a[i][j];
         }
     }
+}
+void Mat::display()
+{
+ for (int i=0; i<r; i++)
+ {
+    for (int j=0; j<c; j++)
+    {
+        cout<<a[i][j]<<" ";
+    }
+    cout<<endl;
+ }
 }
 int main()
 {
@@ -137,14 +127,14 @@ int main()
         cout<<"\nThe sum of the two matrices is: "<<endl; 
         Mat ob3(r1,c1);
         ob3.matrix_add(ob1, ob2);
-        cout<<"******";        
+        ob3.display();
     }
     if((r1==c1)&&(r2==c2))
     {
-        cout<<"------";
         Mat ob4(r1,r1);
-        cout<<"&&&&&";
         ob4.matrix_mult(ob1,ob2);
+        cout<<"\nThe Product of the two matrices is : "<<endl;
+        ob4.display();
     }
     return 0;
 }
