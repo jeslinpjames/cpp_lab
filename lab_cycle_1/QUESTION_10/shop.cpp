@@ -23,3 +23,9 @@ shop::add_item()
     cout<<"Enter the Quantity : ";
     cin>>quantity;
 }
+void shop::print()
+{
+
+}
+void delete_item();
+
