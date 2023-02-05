@@ -38,7 +38,7 @@ void shop::add_item()
 }
 void shop::display_item()
 {
-    cout<<name<<code<<price<<quantity<<endl;   
+    cout<<\
 }
 int main()
 {
@@ -61,9 +61,31 @@ int main()
         }
         else if(choice ==2)
         {
-            int cod,j=0;
+            int cod,j=0,flag1=0,flag2=0;
             cout<<"Enter the product code of the item to be deleted:";
             cin>>cod;
+            while(flag1==0)
+            {
+                for(j=1;i<=i;j++)
+                {
+                    int code1=ob[j].return_code();
+                    if(code1==cod)
+                    {
+                        flag2=1;
+                        break;
+                    }                
+                }  
+                if(flag2==0)
+                {
+                    cout<<"The Entered code is Invalid, Please reenter code:"<<endl;
+                    cin>>cod;
+                }            
+                if(flag2==1)
+                {
+                    flag1++;
+                    break;  
+                }
+            }
             for(j=1;i<=i;j++)
             {
                 int code1=ob[j].return_code();
@@ -90,7 +112,7 @@ int main()
         else if(choice==4)
         {
             cout<<"Thank You"<<endl;
-            return 0;
+            return 0; 
         }
         else
         {
