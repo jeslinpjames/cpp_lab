@@ -14,28 +14,22 @@ class objects
         cout<<"Number of objects = "<<count<<endl;
     }
 };
-// int objects::count;
+int objects::count=0;
 int main()
 {
-    int choice1,choice2;
-    cout<<"Enter 1 to create an object."<<endl;
-    cout<<"Enter 2 to exit."<<endl;
-    cout<<"Enter your choice:";
-    cin>>choice1;
-    if(choice1 ==2)
+    int choice=1;
+    while(choice ==1)
     {
-        cout<<"Thank you"<<endl;
-        return 0;
-    }
-    do
-    {
-        objects ob;
-        ob.showcount();
+        cout<<"Enter 1 to create an object."<<endl;
+        cout<<"Enter 2 or any other number to exit."<<endl;
+        cout<<"Enter your choice:";
+        cin>>choice;
+        if(choice!=1)
+        break;
+        objects *ob=new objects;
+        ob->showcount();
         delete ob;
-        cout<<"Do you want to continue?"<<endl;
-        cout<<"Enter 1 to continue and 2 to exit:";
-        cin>>choice2;
-    }while(choice2==1);
-    cout<<"Thank you"<<endl;
-    return 0;
+    }
+    cout<<"Thank You!"<<endl;
+    return(0);
 }

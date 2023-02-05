@@ -26,9 +26,9 @@ class Mat
             delete a[i];
         delete a; 
     }
-    void matrix_add(Mat &a, Mat &b);
+    void matrix_add(Mat &x, Mat &y);
     void matrix_transpose(void);
-    void matrix_mult(Mat &a, Mat &b);
+    void matrix_mult(Mat &x, Mat &y);
     void accept_elements(void);
     int matrix_trace(void);
     void display();
@@ -80,6 +80,7 @@ void Mat::accept_elements()
 {
     for (int i=0; i<r; i++)
     {
+        cout<<"Enter "<<c<<" elements of "<<i+1<<" row : ";
         for (int j=0; j<c; j++)
         {
             cin>>a[i][j];
