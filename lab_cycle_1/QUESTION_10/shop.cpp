@@ -10,7 +10,7 @@ class shop
     public:
     void delete_item();
     void add_item();
-    void display_item();
+    int display_item();
     int return_code()
     {
           return code;
@@ -36,9 +36,11 @@ void shop::add_item()
     cout<<"Enter the Quantity : ";
     cin>>quantity;
 }
-void shop::display_item()
+int shop::display_item()
 {
-    cout<<\
+    int sum=price*quantity;
+    cout<<code<<"            "<<name<<"          "<<price<<"         "<<quantity<<"          "<<sum<<endl;
+    return sum;
 }
 int main()
 {
@@ -102,12 +104,17 @@ int main()
         }
         else if(choice ==3)
         {
-            cout<<"---------------RECEIPT---------------"<<endl;
-            for(int j=1;j<=i;j++)
+            cout<<endl<<endl<<endl;
+            int sum=0,total=0;
+            cout<<"------------------------------------------RECEIPT---------------------------------------------------"<<endl;
+            cout<<"|     CODE     |       NAME        |       PRICE       |       QUANTITY        |       SUM         |"<<endl;
+            for(int j=1;j<i;j++)
             {
-                ob[j].display_item();
+                sum=ob[j].display_item();
+                total+=sum;
             }
-            cout<<"--------------------------------------"<<endl;
+            cout<<"----------------------------------------------------------------------------------------------------"<<endl;
+            cout<<"                                          TOTAL="<<total<<endl;
         }
         else if(choice==4)
         {
