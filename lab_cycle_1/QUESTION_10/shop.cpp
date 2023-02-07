@@ -137,8 +137,7 @@ int main()
             case 1:
                 int k;
                 k =ob[j].change_quantity();
-                if(k==1)
-                choice_1=2;
+                if(k==0)
                 break;
             case 2:
                 for(int k=j;k<i;k++)
