@@ -63,6 +63,7 @@ int main()
             cout<<"---------------------------ADD ITEM--------------------------"<<endl;
             ob[i].add_item();
             i++;
+            cout<<endl<<endl;
         }
         else if(choice ==2)
         {
@@ -71,7 +72,7 @@ int main()
             cin>>cod;
             while(flag1==0)
             {
-                for(j=1;i<=i;j++)
+                for(j=1;j<=i;j++)
                 {
                     int code1=ob[j].return_code();
                     if(code1==cod)
@@ -82,7 +83,8 @@ int main()
                 }  
                 if(flag2==0)
                 {
-                    cout<<"The Entered code is Invalid, Please reenter code:"<<endl;
+                    cout<<"The Entered code is Invalid, Please reenter code:";
+                    ;
                     cin>>cod;
                 }            
                 if(flag2==1)
@@ -91,7 +93,7 @@ int main()
                     break;  
                 }
             }
-            for(j=1;i<=i;j++)
+            for(j=1;j<=i;j++)
             {
                 int code1=ob[j].return_code();
                 if(code1==cod)
@@ -105,6 +107,7 @@ int main()
             }
             i--;
             cout<<"The Product has been deleted from the list."<<endl;
+            cout<<endl<<endl;
         }
         else if(choice ==3)
         {
@@ -127,7 +130,7 @@ int main()
         }
         else
         {
-            cout<<"Wrong Choice. renter"<<endl;
+            cout<<"Wrong Choice, Please reenter";
             cin>>choice;            
         }
     } while ((choice>=1)&&(choice<=3));

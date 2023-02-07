@@ -1,6 +1,6 @@
 #include<iostream>
 #include<cstring>
-#include<string>
+// #include<string>
 using namespace std;
 class strings
 {
@@ -39,14 +39,14 @@ void strings::compare(strings a , strings b)
 {
     if(a.length>b.length)
     {
-        cout<<a.str<<" is the larger string.";
+        cout<<a.str<<" is the larger string."<<endl;
     }
     else if(b.length>a.length)
     {
-        cout<<b.str<<" is the larger stings.";
+        cout<<b.str<<" is the larger stings."<<endl;
     }
     else
-        cout<<"Both strings are of equal length.";
+        cout<<"Both strings are of equal length."<<endl;
 }
 int main()
 {
@@ -60,7 +60,7 @@ int main()
     strings a(s1);
     strings b(s2);
     strings c;
-    cout<<"-----------RESULT------------";
+    cout<<"----------------RESULT------------------"<<endl;
     cout<<"First string:"<<s1<<endl;
     cout<<"Second String:"<<s2<<endl;
     cout<<"Strings after concatination :";
