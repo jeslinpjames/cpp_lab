@@ -1,4 +1,5 @@
 #include<iostream>
+#include<iomanip>
 using namespace std;
 class shop
 {
@@ -39,12 +40,12 @@ void shop::add_item()
 int shop::display_item()
 {
     int sum=price*quantity;
-    cout<<code<<"            "<<name<<"          "<<price<<"         "<<quantity<<"          "<<sum<<endl;
+    cout<<setw(5)<<code<<setw(20)<<name<<setw(10)<<price<<setw(12)<<quantity<<setw(10)<<sum<<endl;
     return sum;
 }
 int main()
 {
-    cout<<"-----------------SHOP-------------------"<<endl;
+    cout<<"------------------------------SHOP----------------------------"<<endl;
     int choice=0;
     shop ob[100];
     int i=1;
@@ -53,11 +54,13 @@ int main()
         cout<<"Enter 1 to add an item to the shopping list."<<endl;
         cout<<"Enter 2 to remove an item from the shopping list."<<endl;
         cout<<"Enter 3 to print the total value of the purchase order."<<endl;
-        cout<<"Enter 4 to exit.";
+        cout<<"Enter 4 to exit."<<endl<<endl;
+        cout<<"Please Enter your choice : ";
         cin>>choice;
+        cout<<endl<<endl;
         if(choice==1)
         {
-            cout<<"---------------ADD ITEM---------------"<<endl;
+            cout<<"---------------------------ADD ITEM--------------------------"<<endl;
             ob[i].add_item();
             i++;
         }
@@ -101,20 +104,21 @@ int main()
                 ob[k]=ob[k+1];
             }
             i--;
+            cout<<"The Product has been deleted from the list."<<endl;
         }
         else if(choice ==3)
         {
             cout<<endl<<endl<<endl;
             int sum=0,total=0;
-            cout<<"------------------------------------------RECEIPT---------------------------------------------------"<<endl;
-            cout<<"|     CODE     |       NAME        |       PRICE       |       QUANTITY        |       SUM         |"<<endl;
+            cout<<"-------------------------RECEIPT------------------------------"<<endl;
+            cout<<"| CODE  |  NAME               |  PRICE  |  QUANTITY  |  SUM  |"<<endl;
             for(int j=1;j<i;j++)
             {
                 sum=ob[j].display_item();
                 total+=sum;
             }
-            cout<<"----------------------------------------------------------------------------------------------------"<<endl;
-            cout<<"                                          TOTAL="<<total<<endl;
+            cout<<"--------------------------------------------------------------"<<endl;
+            cout<<"                                      TOTAL="<<total<<endl;
         }
         else if(choice==4)
         {
