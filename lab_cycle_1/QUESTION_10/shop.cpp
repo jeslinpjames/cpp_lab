@@ -25,7 +25,7 @@ class shop
         price=i.price;
         quantity=i.quantity;
     }
-    void change_quantity();
+    int change_quantity();
 };
 void shop::add_item()
 {
@@ -44,17 +44,21 @@ int shop::display_item()
     cout<<setw(5)<<code<<setw(20)<<name<<setw(10)<<price<<setw(12)<<quantity<<setw(10)<<sum<<endl;
     return sum;
 }
-void shop::change_quantity()
+int shop::change_quantity()
 {
     int a=0;
     cout<<"Enter quantity of "<<name<<" to be reduced ,currenty there are "<<quantity<<" "<<name<<" in the list : ";
     cin>>a;
-    while(quantity-a>0)
+    while(quantity-a<0)
     {
         cout<<"The quantity to be reduced is greater than quantity in the list, Please re-enter : ";
         cin>>a;
     }
     quantity-=a;
+    if(quantity==0)
+    return 1;
+    else
+    return 0;
 }
 int main()
 {
@@ -64,13 +68,18 @@ int main()
     int i=1;
     do
     {
+        int a=0;
         cout<<"Enter 1 to add an item to the shopping list."<<endl;
         cout<<"Enter 2 to remove an item from the shopping list."<<endl;
         cout<<"Enter 3 to print the total value of the purchase order."<<endl;
         cout<<"Enter 4 to exit."<<endl<<endl;
         cout<<"Please Enter your choice : ";
-        cin>>choice;
-        cout<<endl<<endl;
+        if(a==0)
+        {
+            cin>>choice;
+            cout<<endl<<endl;
+            a=0;
+        }
         if(choice==1)
         {
             cout<<"---------------------------ADD ITEM--------------------------"<<endl;
@@ -118,7 +127,7 @@ int main()
             cout<<"Enter 2 to delete the product completely."<<endl;
             cout<<"Enter your choice:";
             cin>>choice_1;
-            while((choice_1!=1)||(choice_1!=2))
+            while((choice_1!=1)&&(choice_1!=2))
             {
                 cout<<"Wrong choice, Renter : ";
                 cin>>choice_1;
@@ -126,7 +135,10 @@ int main()
             switch (choice_1)
             {
             case 1:
-                ob[j].change_quantity();
+                int k;
+                k =ob[j].change_quantity();
+                if(k==1)
+                choice_1=2;
                 break;
             case 2:
                 for(int k=j;k<i;k++)
@@ -162,9 +174,9 @@ int main()
         }
         else
         {
-            cout<<"Wrong Choice, Please reenter";
-            cin>>choice;            
+            cout<<"Wrong Choice, Please re-enter : "<<endl;       
+            a++;
         }
-    } while ((choice>=1)&&(choice<=3));
+    } while (true);
     return 0;   
 }
