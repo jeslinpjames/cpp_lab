@@ -25,6 +25,7 @@ class shop
         price=i.price;
         quantity=i.quantity;
     }
+    void change_quantity();
 };
 void shop::add_item()
 {
@@ -42,6 +43,18 @@ int shop::display_item()
     int sum=price*quantity;
     cout<<setw(5)<<code<<setw(20)<<name<<setw(10)<<price<<setw(12)<<quantity<<setw(10)<<sum<<endl;
     return sum;
+}
+void shop::change_quantity()
+{
+    int a=0;
+    cout<<"Enter quantity of "<<name<<" to be reduced ,currenty there are "<<quantity<<" "<<name<<" in the list : ";
+    cin>>a;
+    while(quantity-a>0)
+    {
+        cout<<"The quantity to be reduced is greater than quantity in the list, Please re-enter : ";
+        cin>>a;
+    }
+    quantity-=a;
 }
 int main()
 {
@@ -68,6 +81,7 @@ int main()
         else if(choice ==2)
         {
             int cod,j=0,flag1=0,flag2=0;
+            int choice_1=0;
             cout<<"Enter the product code of the item to be deleted:";
             cin>>cod;
             while(flag1==0)
@@ -83,8 +97,7 @@ int main()
                 }  
                 if(flag2==0)
                 {
-                    cout<<"The Entered code is Invalid, Please reenter code:";
-                    ;
+                    cout<<"The Entered code is Invalid, Please re-enter code:";
                     cin>>cod;
                 }            
                 if(flag2==1)
@@ -101,12 +114,31 @@ int main()
                     break;
                 }                
             }
-            for(int k=j;k<i;k++)
+            cout<<"Enter 1 to change quantity of the order."<<endl;
+            cout<<"Enter 2 to delete the product completely."<<endl;
+            cout<<"Enter your choice:";
+            cin>>choice_1;
+            while((choice_1!=1)||(choice_1!=2))
             {
-                ob[k]=ob[k+1];
+                cout<<"Wrong choice, Renter : ";
+                cin>>choice_1;
             }
-            i--;
-            cout<<"The Product has been deleted from the list."<<endl;
+            switch (choice_1)
+            {
+            case 1:
+                ob[j].change_quantity();
+                break;
+            case 2:
+                for(int k=j;k<i;k++)
+                {
+                    ob[k]=ob[k+1];
+                }
+                i--;
+                cout<<"The Product has been deleted from the list."<<endl;
+                break;            
+            default:
+                break;
+            }                    
             cout<<endl<<endl;
         }
         else if(choice ==3)
