@@ -68,18 +68,13 @@ int main()
     int i=1;
     do
     {
-        int a=0;
         cout<<"Enter 1 to add an item to the shopping list."<<endl;
         cout<<"Enter 2 to remove an item from the shopping list."<<endl;
         cout<<"Enter 3 to print the total value of the purchase order."<<endl;
         cout<<"Enter 4 to exit."<<endl<<endl;
         cout<<"Please Enter your choice : ";
-        if(a==0)
-        {
-            cin>>choice;
-            cout<<endl<<endl;
-            a=0;
-        }
+        cin>>choice;
+        cout<<endl;
         if(choice==1)
         {
             cout<<"---------------------------ADD ITEM--------------------------"<<endl;
@@ -89,8 +84,7 @@ int main()
         }
         else if(choice ==2)
         {
-            int cod,j=0,flag1=0,flag2=0;
-            int choice_1=0;
+            int cod,j=0,flag1=0,flag2=0,choice_1=0,index=0;
             cout<<"Enter the product code of the item to be deleted:";
             cin>>cod;
             while(flag1==0)
@@ -101,6 +95,7 @@ int main()
                     if(code1==cod)
                     {
                         flag2=1;
+                        index=j;
                         break;
                     }                
                 }  
@@ -112,16 +107,7 @@ int main()
                 if(flag2==1)
                 {
                     flag1++;
-                    break;  
                 }
-            }
-            for(j=1;j<=i;j++)
-            {
-                int code1=ob[j].return_code();
-                if(code1==cod)
-                {
-                    break;
-                }                
             }
             cout<<"Enter 1 to change quantity of the order."<<endl;
             cout<<"Enter 2 to delete the product completely."<<endl;
@@ -140,12 +126,12 @@ int main()
                 if(k==0)
                 break;
             case 2:
-                for(int k=j;k<i;k++)
+                for(int k=index;k<i;k++)
                 {
                     ob[k]=ob[k+1];
                 }
                 i--;
-                cout<<"The Product has been deleted from the list."<<endl;
+                cout<<"\nThe Product has been deleted from the list."<<endl;
                 break;            
             default:
                 break;
@@ -173,8 +159,7 @@ int main()
         }
         else
         {
-            cout<<"Wrong Choice, Please re-enter : "<<endl;       
-            a++;
+            cout<<"Wrong Choice, Please re-enter : "<<endl<<endl;;       
         }
     } while (true);
     return 0;   
