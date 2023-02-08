@@ -50,10 +50,11 @@ void Mat::matrix_transpose(Mat &x)
     {
         for (int j=0; j<c; j++)
         {
-            cout<<a[j][i]<<" ";
+            a[i][j]=x.a[j][i];
         }
         cout<<endl;
     }
+    display();
 }
 void Mat::matrix_mult(Mat &x, Mat &y)
 { 
@@ -116,7 +117,8 @@ int main()
     Mat obj1(c1,r1);
     obj1.matrix_transpose(ob1);
     cout<<"\nThe Transpose of the Second Matrix : "<<endl;
-    ob2.matrix_transpose();
+    Mat obj2(c2,r2);
+    obj2.matrix_transpose(ob2);
     int trace1=ob1.matrix_trace();
     cout<<"The Trace of the First Matrix : "<<trace1<<endl;
     int trace2=ob2.matrix_trace();
