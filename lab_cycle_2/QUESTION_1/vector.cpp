@@ -3,7 +3,38 @@ using namespace std;
 class vector
 {
     private:
-        int x,y;    //x and y are the coordinates of the vector in the plane        
-    public:     
-        void    
+        int x,y;    
+    public:
+    bool operator==(vector &a);
+    bool vector::operator!=(vector &a);
+    bool vector::operator<(vector &a);   
+    bool vector::operator<=(vector &a);
+};
+bool vector::operator==(vector &a)
+{
+    if(a.x==x)&&(a.y==y)
+    return true;
+    else 
+    return false;
+}
+bool vector::operator!=(vector &a)
+{
+    if(a.x!=x)||(a.y!=y)
+    return true;
+    else 
+    return false;
+}
+bool vector::operator<(vector &a)
+{
+    if(a.x>x)&&(a.y>y)
+    return true;
+    else
+    return false;
+}
+bool vector::operator<=(vector &a)
+{
+    if(a.x>=x)&&(a.y>=y)
+    return true;
+    else
+    return false;
 }
