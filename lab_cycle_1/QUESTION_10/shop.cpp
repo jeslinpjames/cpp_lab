@@ -1,5 +1,6 @@
 #include<iostream>
 #include<iomanip>
+//nazal sceneaa
 using namespace std;
 class shop
 {
