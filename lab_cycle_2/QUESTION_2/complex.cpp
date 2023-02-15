@@ -57,8 +57,8 @@ complex operator+(complex a ,complex b)
 complex operator*(complex a,complex b)
 {
 	complex c;
-	c.real=a.real*b.real;
-	c.imag=a.imag*b.imag;
+	c.real=(a.real*b.real)-(a.imag*b.imag);
+	c.imag=(a.real*b.imag)+(b.real*a.imag);
 	return c;
 }
 int main()
