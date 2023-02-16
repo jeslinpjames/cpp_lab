@@ -1,4 +1,5 @@
 #include<iostream>
+#include<cmath>
 using namespace std;
 class vector
 {
@@ -20,49 +21,65 @@ class vector
 	cout<<"Enter the component of k : ";
 	cin>>k_comp;
     }
-    void display()
-    {
-       cout<<i_comp<<"i + "<<j_comp<<"j + "<<k_comp<<"k "<<endl;
-    }
+    void display();
+    void compute_mag();
 };
+void vector::display()
+{
+	if((j_comp>=0)&&(k_comp>=0))
+		cout<<i_comp<<"i + "<<j_comp<<"j + "<<k_comp<<"k "<<endl;
+        else
+        {
+		if((j_comp<0)&&(k_comp<0))
+			cout<<i_comp<<"i "<<j_comp<<"j "<<k_comp<<"k "<<endl;
+               	else if(j_comp<0)
+			cout<<i_comp<<"i "<<j_comp<<"j + "<<k_comp<<"k "<<endl;
+                else
+			cout<<i_comp<<"i + "<<j_comp<<"j "<<k_comp<<"k "<<endl;
+        }
+}
+void vector::compute_mag()
+{
+	magnitude=sqrt((i_comp*i_comp)+(j_comp*j_comp)+(k_comp*k_comp));
+}
 bool vector::operator==(vector &a)
 {
-    if((a.x==x)&&(a.y==y))
+    if(a.magnitude==magnitude)
     return true;
     else 
     return false;
 }
 bool vector::operator!=(vector &a)
 {
-    if((a.x!=x)||(a.y!=y))
+    if((a.magnitude!=magnitude))
     return true;
     else 
     return false;
 }
 bool vector::operator<(vector &a)
 {
-    if((a.x>x)&&(a.y>y))
+    if((magnitude<a.magnitude))
     return true;
     else
     return false;
 }
 bool vector::operator<=(vector &a)
 {
-    if((a.x>=x)&&(a.y>=y))
+    if(magnitude<=a.magnitude)
     return true;
     else
     return false;
 }
 bool vector::operator>(vector &a)
 {
-    if((a.x<x)&&(a.y<y))
+    if(magnitude>a.magnitude)
     return true;
     else
     return false;
 }
 bool vector::operator>=(vector &a)
 {
-    if((a.x<=x)&&(a.y<=y))
+    if(magnitude>=a.magnitude)
     return true;
     else
     return false;
@@ -78,8 +95,14 @@ int main()
 	{
 		cout<<"Enter the values of the first vector : "<<endl;
 		ob1.accept();
+		ob1.compute_mag();
 		cout<<"Enter the values of the second vector : "<<endl;
 		ob2.accept();
+		ob2.compute_mag();
+		cout<<"The first vector is : ";
+		ob1.display();
+		cout<<"The second vector is : ";
+		ob2.display();
 		int choice1,choice2=1;
 		while(choice2==1)
 		{
