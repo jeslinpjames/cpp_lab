@@ -3,7 +3,7 @@ using namespace std;
 class vector
 {
     private:
-        int x,y;    
+        int i_comp,j_comp,k_comp,magnitude;    
     public:
     bool operator==(vector &a);
     bool operator!=(vector &a);
@@ -13,12 +13,16 @@ class vector
     bool operator>=(vector &a);
     void accept()
     {
-        cout<<"Enter the value of x and y"<<endl;
-        cin>>x>>y;
+        cout<<"Enter the component of i : ";
+	cin>>i_comp;
+	cout<<"Enter the component of j : ";
+	cin>>j_comp;
+	cout<<"Enter the component of k : ";
+	cin>>k_comp;
     }
     void display()
     {
-        cout<<"x="<<x<<"y="<<y<<endl;
+       cout<<i_comp<<"i + "<<j_comp<<"j + "<<k_comp<<"k "<<endl;
     }
 };
 bool vector::operator==(vector &a)
