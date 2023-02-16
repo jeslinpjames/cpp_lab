@@ -36,13 +36,13 @@ class complex
 		}
 		void display()
 		{
-			cout<<"The Complex number is : "<<real;
+			cout<<real;
 			if(imag<0)
 			{
-				cout<<imag<<"j"<<endl;
+				cout<<imag<<"i"<<endl;
 			}
 			else
-				cout<<"+"<<imag<<"j"<<endl;
+				cout<<"+"<<imag<<"i"<<endl;
 		}
 		friend complex operator+(complex a, complex b);
 		friend complex operator*(complex a, complex b);
@@ -68,17 +68,43 @@ int main()
 	do
 	{
 		a.input();
-		a.display();
 		b.input();
+		cout<<"The first complex number is : ";
+		a.display();
+		cout<<"The second complex number is :";
 		b.display();
-		c=a+b;
-		d=a*b;
-		cout<<"The sum of the two complex numbers is : "<<endl;
-		c.display();
-		cout<<"The product of the two complex number is : "<<endl;
-		d.display();
+		int choice2=1;
+		while(choice2 ==1)
+		{
+			cout<<"Enter 1 to find the sum of the two complex numbers. "<<endl;
+			cout<<"Enter 2 to find the product of the two complex numbers."<<endl;
+			cout<<"Enter your choice :";
+			int choice1;
+			cin>>choice1;
+			switch(choice1)
+			{
+				case 1:
+					c=a+b;
+					cout<<"The sum of the two complex number is : ";
+					c.display();
+					break;
+				case 2:
+					d=a*b;
+					cout<<"The product of the two complex numbers is : ";
+					d.display();
+					break;
+				default:
+					cout<<"Wrong Choice!"<<endl;
+			}
+			cout<<endl<<endl;
+			cout<<"Enter 1 to continue operations "<<endl;
+			cout<<"Enter 2 or any other number to exit"<<endl;
+			cin>>choice2;
+			cout<<endl;
+		}
+		
 		cout<<endl<<endl;
-		cout<<"To continue enter 1."<<endl;
+		cout<<"To continue and enter new complex number enter 1."<<endl;
 		cout<<"To exit enter any number."<<endl;
 		cout<<"Enter your choice : ";
 		cin>>choice;
