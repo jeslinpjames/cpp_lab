@@ -1,43 +1,79 @@
 #include<iostream>
 using namespace std;
-class vector
+class Vector
 {
 	private:
-	float i_comp,j_comp,k_comp,magnitude;
+		float i_comp,j_comp,k_comp;
 	public:
-	friend float operator*(vector &a); 
-	friend ostream& operator<<(vector &a,ostream &out );
-	friend istream& operator>>(vector &a,istream &in);
+		friend float operator*(Vector &a,Vector &b);
+		friend istream& operator>>(istream &in, Vector &a);
+		friend ostream& operator<<(ostream &out,Vector &a);
 };
-float operator*(vector &a)
+float operator*(Vector& a,Vector& b)
 {
-	float product;
-	product=(i_comp*a.i_comp)+(j_comp*a.j_comp)+(k_comp*a.k_comp);
-	return product;
+	return((b.i_comp*a.i_comp)+(b.j_comp*a.j_comp)+(b.k_comp*a.k_comp));
 }
-istream& operator>>(vector &a,istream &in)
+istream& operator>>(istream &in, Vector& a)
 {
 	cout<<"Enter the component of i : ";
-	cin>>a.i_comp;
+	in>>a.i_comp;
 	cout<<"Enter the component of j : ";
-	cin>>a.j_comp;
+	in>>a.j_comp;
 	cout<<"Enter the component of k : ";
-	cin>>a.k_comp;
-	return(in);
+	in>>a.k_comp;
+	return in;
 }
-ostream& operator<<(vector &a,ostream &out)
+ostream& operator<<(ostream &out , Vector& a)
 {
 	if((a.j_comp>=0)&&(a.k_comp>=0))
-		cout<<a.i_comp<<"i + "<<a.j_comp<<"j + "<<a.k_comp<<"k "<<endl;
+		out<<a.i_comp<<"i + "<<a.j_comp<<"j + "<<a.k_comp<<"k "<<endl;
         else
         {
 		if((a.j_comp<0)&&(a.k_comp<0))
-			cout<<a.i_comp<<"i "<<a.j_comp<<"j "<<a.k_comp<<"k "<<endl;
+			out<<a.i_comp<<"i "<<a.j_comp<<"j "<<a.k_comp<<"k "<<endl;
                	else if(a.j_comp<0)
-			cout<<a.i_comp<<"i "<<a.j_comp<<"j + "<<a.k_comp<<"k "<<endl;
+			out<<a.i_comp<<"i "<<a.j_comp<<"j + "<<a.k_comp<<"k "<<endl;
                 else
-			cout<<a.i_comp<<"i + "<<a.j_comp<<"j "<<a.k_comp<<"k "<<endl;
+			out<<a.i_comp<<"i + "<<a.j_comp<<"j "<<a.k_comp<<"k "<<endl;
         }
+	return out;
 }
-
-	
+int main()
+{
+	int choice1;
+	do
+	{
+		cout<<"Enter 1 to start,"<<endl;
+		cout<<"Enter 2 or any other number to quit. "<<endl;
+		cout<<"Enter your choice :";
+		cin>>choice1;
+		if(choice1!=1)
+		{
+			break;
+		}
+		cout<<"Enter values of Vector 1 :"<<endl;
+		Vector v1;
+		cin>>v1;
+		cout<<"Enter values of Vector 2 :"<<endl;
+		Vector v2;
+		cin>>v2;
+		cout<<"Vector 1 is : "<<v1<<endl;
+		cout<<"Vector 2 is : "<<v2<<endl;
+		int choice2=0;
+		cout<<"Enter 1 to find the dot product of these 2 vectors."<<endl;
+		cout<<"Enter 2 or any other number to exit."<<endl;
+		cout<<"Enter your choice : ";
+		cin>>choice2;
+		if(choice2==1)
+		{
+			float product;
+			product=v1*v2;
+			cout<<"The dot product is : "<<product<<endl;
+		}
+		else
+		{
+			break;
+		}
+	}while(choice1==1);
+	return 0;
+}
