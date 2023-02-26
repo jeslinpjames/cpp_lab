@@ -8,7 +8,7 @@ class bank
     string cust_name;
     string passw[100];
     int acc_no;
-    long balance;
+    double balance;
     string acc_type;
     public:
     void addacc(void);
@@ -16,9 +16,9 @@ class bank
     void deposit(void);
     void balance_check(void);
     void statement(void);
-    string ret_pass()
+    string ret_pass(int n)
     {
-        return passw[srno];
+        return passw[n];
     }
 };
 void bank::addacc(void)
@@ -115,19 +115,18 @@ int main()
         {
             cout<<"Enter your Account Number:";
             cin>>no;
-            cout<<"Enter your Passowrd:";
-            cin>>password;
-            if(password!=ob[srno].ret_pass())
-            {
-                cout<<"Wrong password, Please enter correct Password:";
-                cin>>password;
-            }
-
-            while((no<1)&&(no>srno))
+	    while((no<1)||(no>srno))
             {
                 cout<<"Incorrect Account Number, Please enter the correct Account Number:";
                 cin>>no;
             }
+	    cout<<"Enter your Password : ";
+	    cin>>password;
+	    while(password!=ob[no].ret_pass(no))
+	    {
+	    cout<<"Wrong password!, Please enter correct password : ";
+		    cin>>password;
+	    }
         }
         switch(n)
         {
