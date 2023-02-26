@@ -4,7 +4,7 @@ using namespace std;
 class vector
 {
     private:
-        int i_comp,j_comp,k_comp,magnitude;    
+    float i_comp,j_comp,k_comp,magnitude;    
     public:
     bool operator==(vector &a);
     bool operator!=(vector &a);

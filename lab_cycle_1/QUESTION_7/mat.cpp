@@ -25,7 +25,6 @@ class Mat
         for (int i=0; i<r; i++)
             delete a[i];
         delete a; 
-        cout<<"dest"<<endl;
     }
     void matrix_add(Mat &x, Mat &y);
     void matrix_transpose(Mat &x);
@@ -58,12 +57,12 @@ void Mat::matrix_transpose(Mat &x)
 }
 void Mat::matrix_mult(Mat &x, Mat &y)
 { 
-   for (int i=0; i<r; i++)
+   for (int i=0; i<x.r; i++)
     {
-        for (int j=0; j<r; j++)
+        for (int j=0; j<y.c; j++)
         {
             a[i][j]=0;
-            for(int k=0;k<r;k++)
+            for(int k=0;k<x.c;k++)
             {
                 a[i][j]+=x.a[i][k]*y.a[k][j];
             }
