@@ -18,11 +18,13 @@ class Matrix
 				{
 					a[i]= new int [c];
 					for (int j = 0; j < c; j++) 
-					{
 						a[i][j] = 0;
-					}
 				}
 			}
+			// else
+			// {
+			// 	a = nullptr;
+			// }
 		}
 		// ~Matrix()
 		// {
@@ -56,7 +58,6 @@ Matrix operator+(Matrix &p,Matrix &q)
 		cout<<"Addition of Matrix not possible. "<<endl;
 	}
 	return x;
-
 }
 Matrix operator*(Matrix &p,Matrix &q)
 {
