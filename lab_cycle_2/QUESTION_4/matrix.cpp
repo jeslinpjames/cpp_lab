@@ -21,20 +21,20 @@ class Matrix
 						a[i][j] = 0;
 				}
 			}
-			// else
-			// {
-			// 	a = nullptr;
-			// }
+			 else
+			 {
+			 	a = nullptr;
+			 }
 		}
-		// ~Matrix()
-		// {
-		// 	if (a != nullptr) {
-		// 		for (int i = 0; i < r; i++)
-		// 			delete[] a[i];
-		// 		delete[] a;
-		// 	}
-		// 	cout << "DEST" << endl;
-		// }
+		 ~Matrix()
+		  {
+		 	if (a != nullptr) {
+		 		for (int i = 0; i < r; i++)
+		 			delete[] a[i];
+		 		delete[] a;
+		 	}
+		 	cout << "DEST" << endl;
+		 }
 		friend Matrix operator+(Matrix &p,Matrix &q);
 		friend Matrix operator*(Matrix &p,Matrix &q);	
 		friend istream& operator>>(istream &in, Matrix &x);
