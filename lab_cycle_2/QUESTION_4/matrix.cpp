@@ -21,10 +21,6 @@ class Matrix
 						a[i][j] = 0;
 				}
 			}
-			 else
-			 {
-			 	a = nullptr;
-			 }
 		}
 		 ~Matrix()
 		  {
