@@ -135,7 +135,7 @@ int main()
     }
     if(c1==r2)
     {
-        Mat ob4(r2,c2);
+        Mat ob4(r1,c2);
         ob4.matrix_mult(ob1,ob2);
         cout<<"\nThe Product of the two matrices is : "<<endl;
         ob4.display();
