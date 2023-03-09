@@ -14,12 +14,6 @@ class Student
             strcpy(name,n);
             cout<<"Student class constructor called"<<endl;
         }
-        // void getdata()
-        // {
-        //     cout<<"Enter the roll no: ";
-        //     cin>>roll_no;
-        //     cout<<"Enter the name: ";
-        //     cin>>name;
         void putdata()
         {
             cout<<"Roll no: "<<roll_no<<endl;
@@ -40,8 +34,8 @@ class Test:virtual public Student
     }
     void putmarks()
     {
-        cout<<"Mark 1 = "<<subject1<<endl;
-        cout<<"Mark 2 = "<<subject2<<endl;
+        cout<<"Mark for Computer = "<<subject1<<endl;
+        cout<<"Mark for Physics = "<<subject2<<endl;
     }    
 };
 class Sports:virtual public Student
@@ -57,7 +51,7 @@ class Sports:virtual public Student
     }
     void putscore()
     {
-        cout<<"Score = "<<score<<endl;
+        cout<<"Score for Sports = "<<score<<endl;
     }    
 };
 class Result:public Test,public Sports
@@ -70,12 +64,28 @@ class Result:public Test,public Sports
         total=k+l+s;
         cout<<"Result class constructor called"<<endl;
     }
+    void calcgrade()
+    {
+    if(total>=90)
+    cout<<"Grade = A"<<endl;
+    else if(total>=80)
+    cout<<"Grade = B"<<endl;
+    else if(total>=70)
+    cout<<"Grade = C"<<endl;
+    else if(total>=60)
+    cout<<"Grade = D"<<endl;
+    else if(total>=50)
+    cout<<"Grade = E"<<endl;
+    else
+    cout<<"Grade = F"<<endl;
+    }
     void display()
     {
         putdata();
         putmarks();
         putscore();
         cout<<"Total = "<<total<<endl;
+        calcgrade();
     }
 };
 int main()
@@ -111,6 +121,7 @@ int main()
         cout<<"Enter the marks of the student for Sports : ";
         cin>>s;
     }
+    cout<<endl<<endl;
     Result r1(r,n,k,l,s);
     cout<<endl<<endl;
     r1.display();
