@@ -25,3 +25,21 @@ class Student
         }
     
 };
+class Test:public Student
+{
+    protected:
+    float subject1,subject2;
+    public:
+    Test(){}
+    Test(float k ,float l)
+    {
+        subject1=k;
+        subject2=l;
+        cout<<"Test class constructor called"<<endl;
+    }
+    void putmarks()
+    {
+        cout<<"Mark 1 = "<<subject1<<endl;
+        cout<<"Mark 2 = "<<subject2<<endl;
+    }    
+};
