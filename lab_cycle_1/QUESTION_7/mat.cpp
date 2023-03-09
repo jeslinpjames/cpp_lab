@@ -59,7 +59,7 @@ void Mat::matrix_mult(Mat &x, Mat &y)
 { 
    for (int i=0; i<x.r; i++)
     {
-        for (int j=0; j<y.c; j++)
+        for (int j=0; j<y.r; j++)
         {
             a[i][j]=0;
             for(int k=0;k<x.c;k++)
@@ -135,7 +135,7 @@ int main()
     }
     if(c1==r2)
     {
-        Mat ob4(r2,c2);
+        Mat ob4(r1,c2);
         ob4.matrix_mult(ob1,ob2);
         cout<<"\nThe Product of the two matrices is : "<<endl;
         ob4.display();
