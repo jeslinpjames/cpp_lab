@@ -1,3 +1,6 @@
+#include<iostream>
+#include<cstring>
+using namespace std;
 class Student
 { 
     protected:
@@ -17,15 +20,13 @@ class Student
         //     cin>>roll_no;
         //     cout<<"Enter the name: ";
         //     cin>>name;
-        }
         void putdata()
         {
             cout<<"Roll no: "<<roll_no<<endl;
             cout<<"Name: "<<name<<endl;
         }
-    
 };
-class Test:public Student
+class Test:virtual public Student
 {
     protected:
     float subject1,subject2;
@@ -43,7 +44,7 @@ class Test:public Student
         cout<<"Mark 2 = "<<subject2<<endl;
     }    
 };
-class Sports:public Student
+class Sports:virtual public Student
 {
     protected:
     float score;
@@ -59,4 +60,40 @@ class Sports:public Student
         cout<<"Score = "<<score<<endl;
     }    
 };
-
+class Result:public Test,public Sports
+{
+    float total;
+    public:
+    Result(){}
+    Result(int r,char n[],float k,float l,float s):Test(k,l),Sports(s),Student(r,n)
+    {
+        total=k+l+s;
+        cout<<"Result class constructor called"<<endl;
+    }
+    void display()
+    {
+        putdata();
+        putmarks();
+        putscore();
+        cout<<"Total = "<<total<<endl;
+    }
+};
+int main()
+{
+    int r;
+    char n[20];
+    float k,l,s;
+    cout<<"Enter the roll no : ";
+    cin>>r;
+    cout<<"Enter the name of the student : ";
+    cin>>n;
+    cout<<"Enter the marks of the student for Computer : ";
+    cin>>k;
+    cout<<"Enter the marks of the student for Physics : ";
+    cin>>l;
+    cout<<"Enter the marks of the student for Sports : ";
+    cin>>s;
+    Result r1(r,n,k,l,s);
+    r1.display();
+    return 0;
+}
