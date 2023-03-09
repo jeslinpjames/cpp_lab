@@ -43,3 +43,20 @@ class Test:public Student
         cout<<"Mark 2 = "<<subject2<<endl;
     }    
 };
+class Sports:public Student
+{
+    protected:
+    float score;
+    public:
+    Sports(){}
+    Sports(float s)
+    {
+        score=s;
+        cout<<"Sports class constructor called"<<endl;
+    }
+    void putscore()
+    {
+        cout<<"Score = "<<score<<endl;
+    }    
+};
+
