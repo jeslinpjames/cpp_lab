@@ -10,7 +10,6 @@ class shop
     float price;
     int quantity;
     public:
-    void delete_item();
     void add_item();
     int display_item();
     int return_code()
