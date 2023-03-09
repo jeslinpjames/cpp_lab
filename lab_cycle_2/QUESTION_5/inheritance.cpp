@@ -89,11 +89,30 @@ int main()
     cin>>n;
     cout<<"Enter the marks of the student for Computer : ";
     cin>>k;
+    while(k>100)
+    {
+        cout<<"The entered marks is greater than 100, Please re-enter : "<<endl;
+        cout<<"Enter the marks of the student for Computer : ";
+        cin>>k;
+    }
     cout<<"Enter the marks of the student for Physics : ";
     cin>>l;
+    while(l>100)
+    {
+        cout<<"The entered marks is greater than 100, Please re-enter : "<<endl;
+        cout<<"Enter the marks of the student for Physics : ";
+        cin>>l;
+    }
     cout<<"Enter the marks of the student for Sports : ";
     cin>>s;
+    while(s>100)
+    {
+        cout<<"The entered marks is greater than 100, Please re-enter : "<<endl;
+        cout<<"Enter the marks of the student for Sports : ";
+        cin>>s;
+    }
     Result r1(r,n,k,l,s);
+    cout<<endl<<endl;
     r1.display();
     return 0;
 }
