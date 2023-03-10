@@ -1,80 +1,90 @@
 #include<iostream>
-#include<iomainp>
+#include<iomanip>
 using namespace std;
-class Planets
+class Star
 {
     protected:
-    int orbiting_planets;
+    long Planets_around_Star;
     public:
-    Planets(){}
-    Planets(int n1)
+    Star(){}
+    Star(long n1)
     {
-        orbiting_planets=n1;
+        Planets_around_Star=n1;
     }
     void display()
     {
-        cout<<"The number of planets orbiting is"<<setw(10)<<":"<<setw(5)<<orbiting_planets<<endl;
+        cout << left << setw(40) << "The number of Planets around the Star is:" << right << setw(5) << Planets_around_Star << endl;
     }
 };
-class Stars:virtual public Planets
+class BlackHole
 {
     protected:
-    int noofStars;
+    long Planets_around_BlackHole;
     public:
-    Stars(){}
-    Stars(int n2)
+    BlackHole(){}
+    BlackHole(long n2)
     {
-        noofStars=n2;
+        Planets_around_BlackHole=n2;
     }
     void display()
     {
-        cout<<"The number of Stars is"<<setw(10)<<":"<<setw(5)<<noofStars<<endl;
+        cout << left << setw(40) << "The number of Planets around the BlackHole is:" << right << setw(5) << Planets_around_BlackHole << endl;
     }
 };
-class BlackHoles:virtual public Planets
+class Galaxy:public Star,public BlackHole
 {
     protected:
-    int noofBlackHoles;
-    public:
-    BlackHoles(){}
-    BlackHoles(int n3)
-    {
-        noofBlackHoles=n3;
-    }
-    void display()
-    {
-        cout<<"The number of BlackHoles is"<<setw(10)<<":"<<setw(5)<<noofBlackHoles<<endl;
-    }
-};
-class Galaxy:public Stars,public BlackHoles
-{
-    protected:
-    int noofGalaxies;
+    long noofStars;
+    long noofBlackHoles;
     public:
     Galaxy(){}
-    Galaxy(int n4)
+    Galaxy(long n3,long n4,long n2,long n1):Star(n1),BlackHole(n2)
     {
-        noofGalaxies=n4;
+        noofStars=n3;
+        noofBlackHoles=n4;
     }
     void display()
     {
-        cout<<"The number of Galaxies is"<<setw(10)<<":"<<setw(5)<<noofGalaxies<<endl;
+        cout << left << setw(40) << "The number of Stars in the Galaxy is:" << right << setw(5) << noofStars << endl;
+        cout << left << setw(40) << "The number of Black Holes in the Galaxy is:" << right << setw(5) << noofBlackHoles << endl;      
     }
 };
-class Universe
+class Universe:public Galaxy
 {
     protected:
-	    int noofGalaxies;
+	    long noofGalaxies;
     public:
 	    Universe(){}
-	    Universe(int n3)
+	    Universe(long n5,long n4,long n3,long n2,long n1):Galaxy(n3,n4,n2,n1)
 	    {
-		    noofGalaxies=n3;
+		    noofGalaxies=n5;
 	    }
 	    void display()
 	    {
-		    cout<<"The number of Galaxies in the Universe is"<<setw(10)<<":"<<setw(5)<<noofGalaxieS<<endl;
-            }
+            cout << left << setw(40) << "The number of Galaxies in the Universe is:" << right << setw(5) << noofGalaxies << endl;
+            Galaxy::display();
+            BlackHole::display();
+            Star::display();
+        }
 };
+int main()
+{
+    long n1,n2,n3,n4,n5;
+    cout<<"Enter the number of Planets around the Star : ";
+    cin>>n1;
+    cout<<"Enter the number of Planets around the Black Hole : ";
+    cin>>n2;
+    cout<<"Enter the number of Stars in the Galaxy : ";
+    cin>>n3;
+    cout<<"Enter the number of Black Holes in the Galaxy : ";
+    cin>>n4;
+    cout<<"Enter the number of Galaxies in the Universe : ";
+    cin>>n5;
+    cout<<endl<<endl;
+    Universe U(n5,n4,n3,n2,n1);
+    U.display();
+    return 0;
+}
+
 
 		
