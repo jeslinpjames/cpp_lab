@@ -46,6 +46,21 @@ class BlackHoles:virtual public Planets
         cout<<"The number of BlackHoles is"<<setw(10)<<":"<<setw(5)<<noofBlackHoles<<endl;
     }
 };
+class Galaxy:public Stars,public BlackHoles
+{
+    protected:
+    int noofGalaxies;
+    public:
+    Galaxy(){}
+    Galaxy(int n4)
+    {
+        noofGalaxies=n4;
+    }
+    void display()
+    {
+        cout<<"The number of Galaxies is"<<setw(10)<<":"<<setw(5)<<noofGalaxies<<endl;
+    }
+};
 class Universe
 {
     protected:
