@@ -7,13 +7,28 @@ class Planets
     int orbiting_planets;
     public:
     Planets(){}
-    Planets(int n)
+    Planets(int n1)
     {
-        orbiting_planets=n;
+        orbiting_planets=n1;
     }
     void display()
     {
         cout<<"The number of planets orbiting is"<<setw(10)<<":"<<setw(5)<<orbiting_planets<<endl;
+    }
+};
+class Stars:virtual public Planets
+{
+    protected:
+    int noofStars;
+    public:
+    Stars(){}
+    Stars(int n2)
+    {
+        noofStars=n2;
+    }
+    void display()
+    {
+        cout<<"The number of Stars in is"<<setw(10)<<":"<<setw(5)<<noofStars<<endl;
     }
 };
 class Universe
@@ -22,9 +37,9 @@ class Universe
 	    int noofGalaxies;
     public:
 	    Universe(){}
-	    Universe(int n1)
+	    Universe(int n3)
 	    {
-		    noofGalaxies=n1;
+		    noofGalaxies=n3;
 	    }
 	    void display()
 	    {
