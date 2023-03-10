@@ -69,20 +69,40 @@ class Universe:public Galaxy
 };
 int main()
 {
-    long n1,n2,n3,n4,n5;
-    cout<<"Enter the number of Planets around the Star : ";
-    cin>>n1;
-    cout<<"Enter the number of Planets around the Black Hole : ";
-    cin>>n2;
-    cout<<"Enter the number of Stars in the Galaxy : ";
-    cin>>n3;
-    cout<<"Enter the number of Black Holes in the Galaxy : ";
-    cin>>n4;
-    cout<<"Enter the number of Galaxies in the Universe : ";
-    cin>>n5;
-    cout<<endl<<endl;
-    Universe U(n5,n4,n3,n2,n1);
-    U.display();
+    int option1;
+    cout<<"Enter 1 to Start,2 or any other number to Exit : ";
+    cin>>option1;
+    if(option1==1)
+    {
+        long n1,n2,n3,n4,n5;
+        cout<<"Enter the number of Planets around the Star : ";
+        cin>>n1;
+        cout<<"Enter the number of Planets around the Black Hole : ";
+        cin>>n2;
+        cout<<"Enter the number of Stars in the Galaxy : ";
+        cin>>n3;
+        cout<<"Enter the number of Black Holes in the Galaxy : ";
+        cin>>n4;
+        cout<<"Enter the number of Galaxies in the Universe : ";
+        cin>>n5;
+        cout<<endl<<endl;
+        Universe U(n5,n4,n3,n2,n1);
+        cout<<"Do you want to display it?"<<endl;
+        int option2;
+        cout<<"Enter 1 to Display,2 or any other number to Exit : ";
+        cin>>option2;
+        if(option2==1)
+        {
+            U.display();
+            cout<<endl<<endl;
+        }
+        else
+        {
+            cout<<endl<<"Thank You"<<endl;
+            return 0;
+        }
+    }
+    cout<<"Thank You"<<endl;
     return 0;
 }
 
