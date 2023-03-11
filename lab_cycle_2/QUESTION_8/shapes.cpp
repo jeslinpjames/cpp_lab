@@ -15,7 +15,7 @@ class Circle:public Shapes
     public:
         void input()
         {
-            cout<<"Enter the raius of the Circle : "
+            cout<<"Enter the raius of the Circle : ";
             cin>>radius;
         }
         void area()
@@ -24,3 +24,20 @@ class Circle:public Shapes
             cout<<"The area of the Circle is : "<<area<<endl;             
         }
 };
+class Square:public Shapes
+{
+    private:
+        float side;
+    public:
+        void input()
+        {
+            cout<<"Enter the side of the Square : ";
+            cin>>side;
+        }
+        void area()
+        {
+            area= side*side;
+            cout<<"The area of the Square is : "<<area<<endl;
+        }
+};
+
