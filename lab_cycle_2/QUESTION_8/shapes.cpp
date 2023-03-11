@@ -5,8 +5,8 @@ class Shapes
     protected:
         float area;
     public:
-        virtual void find_area();
-        virtual void input();
+        virtual void find_area()=0;
+        virtual void input()=0;
 };
 class Circle:public Shapes
 {
@@ -47,9 +47,9 @@ class Ellipse:public Shapes
     public:
         void input()
         {
-            cout<<"Enter the value of the Major Axis of the Ellipse : "
+            cout<<"Enter the value of the Major Axis of the Ellipse : ";
             cin>>major_axis;
-            cout<<"Enter the value of the Minor Axis of the Ellipse : "
+            cout<<"Enter the value of the Minor Axis of the Ellipse : ";
             cin>>minor_axis;
         }
         void find_area()
@@ -76,4 +76,51 @@ class Rectangle:public Shapes
             cout<<"The area of the Rectangle is : "<<area<<endl;
         }
 };
+int main()
+{
+    int option1=0;
+    cout<<"Enter 1 to Start, 2 or any other number to Exit : ";
+    cin>>option1;
+    while(option1==1)
+    {
+        int choice;
+        Shapes *pointer;
+        cout<<"Enter 1 for area of Circle."<<endl;
+        cout<<"Enter 2 for area of Square."<<endl;
+        cout<<"Enter 3 for area of Ellipse."<<endl;
+        cout<<"Enter 4 for area of Rectangle."<<endl;
+        cout<<"Please enter your choice : ";
+        cin>>choice;
+        switch (choice)
+        {
+        case 1:
+            pointer=new Circle;
+            pointer->input();
+            pointer->find_area();
+            break;
+        case 2:
+            pointer=new Square;
+            pointer->input();
+            pointer->find_area();
+            break;
+        case 3:
+            pointer=new Ellipse;
+            pointer->input();
+            pointer->find_area();
+            break;
+        case 4:
+            pointer=new Rectangle;
+            pointer->input();
+            pointer->find_area();
+            break;     
+        default:
+            cout<<"Wrong choice!"<<endl;
+            break;
+        }
+        cout<<"Enter 1 to continue, 2 or any other number to Exit : ";
+        cin>>option1;
+    }
+    cout<<"Thank You!"<<endl;
+    return(0);
+}
 
