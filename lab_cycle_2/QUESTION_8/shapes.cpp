@@ -58,4 +58,22 @@ class Ellipse:public Shapes
             cout<<"The area of the Ellipse is : "<<area<<endl;
         }
 };
+class Rectangle:public Shapes
+{
+    private:
+        float length,breadth;
+    public:
+        void input()
+        {
+            cout<<"Enter the Length of the Rectangle : ";
+            cin>>length;
+            cout<<"Enter the Breadth of the Rectangle : ";
+            cin>>breadth;
+        }
+        void find_area()
+        {
+            area=length*breadth;
+            cout<<"The area of the Rectangle is : "<<area<<endl;
+        }
+};
 
