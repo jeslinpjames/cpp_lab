@@ -19,3 +19,10 @@ class calculate
     T div()
     {return(num1/num2);}
 }
+int main()
+{
+    int choice1=0;
+    cout<<"Enter 1 to Start,\nEnter 2 or any other number to Exit.\nEnter your chioice : ";
+    cin>>choice1;
+    while(choice1==1)
+}

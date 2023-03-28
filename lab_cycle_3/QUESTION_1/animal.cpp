@@ -8,7 +8,7 @@ class Animal
         virtual void speak()=0;   
 };
 class Dog:public Animal
-{
+{git
     public:
     void speak()
     {
@@ -43,7 +43,6 @@ int main()
             cout<<name;
             pet =new Dog;
             pet->speak();
-            // delete name;
             break;
             case 2:
             cout<<"Enter the cat's name : ";
@@ -51,7 +50,6 @@ int main()
             cout<<name;
             pet = new Cat;
             pet->speak();
-            // delete name;
             break;
             default:cout<<"Invalid Choice!"<<endl;
         }
