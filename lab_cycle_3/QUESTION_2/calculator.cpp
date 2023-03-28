@@ -18,7 +18,20 @@ class calculate
     T mult()
     {return(num1*num2);}
     T div()
-    {return(num1/num2);}
+    {
+        try
+        {
+            if(num2==0)
+            throw num2;
+            else
+            return(num1/num2);
+        }
+        catch(T num2)
+        {
+            cout<<"Division by zero is not possible!"<<endl;
+        }
+        return(num1/num2);
+        }
 };
 int main()
 {
