@@ -31,10 +31,9 @@ int main()
     while(choice1==1)
     {
         int choice2=0;
+        Animal *pet;
         cout<<"Enter 1 for Dog.\nEnter 2 for cat.\nEnter your choice : ";
         cin>>choice2;
-        Dog mydog;
-        Cat mycat;
         string name;
         switch(choice2)
         {
@@ -42,14 +41,16 @@ int main()
             cout<<"Enter the dog's name : ";
             cin>>name;
             cout<<name;
-            mydog.speak();
+            pet =new Dog;
+            pet->speak();
             // delete name;
             break;
             case 2:
             cout<<"Enter the cat's name : ";
             cin>>name;
             cout<<name;
-            mycat.speak();
+            pet = new Cat;
+            pet->speak();
             // delete name;
             break;
             default:cout<<"Invalid Choice!"<<endl;
