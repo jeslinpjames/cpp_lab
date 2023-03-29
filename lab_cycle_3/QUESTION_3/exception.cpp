@@ -9,18 +9,23 @@ class exep
     {}
     double divide()
     {
-        double q;
+        double q=0.0;
         try
         {
             if(b==0)
-                throw e;
-            else 
-                return(a/b);
+                throw runtime_error("Divison by zero not possible!");
+            else
+               q=a/b;                 
         }
         catch(exception &e)
         {
-            cout<<"Division by zero not possible!"<<endl;
+            cout<<e.what()<<endl;
         }
+        return q;
+    }
+    void input()
+    {
+        
     }
 };
 int main()
@@ -31,10 +36,24 @@ int main()
     while(choice1==1)
     {
         int n1,n2;
-        cout<<"Enter the first number : ";
-        cin>>n1;
-        cout<<"Enter the second number : ";
-        cin>>n2;
+        try
+        {
+            cout<<"Enter the first number : ";
+            cin>>n1;
+            if(cin.fail())
+            throw("Invalid data type, Enter Integer value.");
+            cout<<"Enter the second number : ";
+            cin>>n2;
+            if(cin.fail())
+            throw("Invalid data type, Enter Integer value.");
+        }
+        catch (const char* msg)
+        {
+            cout<<msg<<endl;
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            continue;
+        }
         exep ob(n1,n2);
         double q= ob.divide();
         cout<<n1<<" / "<<n2<<" = "<<q<<endl;
