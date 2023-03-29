@@ -9,18 +9,19 @@ class exep
     {}
     double divide()
     {
-        double q;
+        double q=0;
         try
         {
             if(b==0)
-                throw e;
+                throw runtime_error("Divison by zero not possible!");
             else 
-                return(a/b);
+                q=(a/b);
         }
         catch(exception &e)
         {
-            cout<<"Division by zero not possible!"<<endl;
+            cout<<e.what()<<endl;
         }
+        return q;
     }
 };
 int main()
@@ -37,6 +38,7 @@ int main()
         cin>>n2;
         exep ob(n1,n2);
         double q= ob.divide();
+        if(q!=0&&n2!=0)
         cout<<n1<<" / "<<n2<<" = "<<q<<endl;
         cout<<"Enter 1 to Continue,\nEnter 2 to Exit : ";
         cin>>choice1;
