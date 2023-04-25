@@ -74,16 +74,8 @@ void Student::calcGrade(void)
 }
 void Student::display(void)
 {
-	cout<<"----------REPORT CARD----------"<<endl;
-	cout<<"Name : "<<name<<endl;
-	cout<<"Roll No : "<<Roll_no<<endl;
-	cout<<"-------------MARKS-------------"<<endl;
-	cout<<"Maths : "<<mark_1<<endl;
-	cout<<"Computer : "<<mark_2<<endl;
-	cout<<"Physics : "<<mark_3<<endl;
-	cout<<"-------------------------------"<<endl;
-	cout<<"Average Marks : "<<avg<<endl;
-	cout<<" Grade : ";
+	cout<<" "<<Roll_no<<"\t\t"<<name<<"\t\t "<<mark_1<<"\t\t "<<mark_2<<"\t\t "<<mark_3<<"\t\t "<<avg<<"\t\t";
+	calcGrade();
 }
 void Student::average(void)
 {
@@ -99,10 +91,18 @@ int main()
 	{
 		ob[i].input();
 		ob[i].average();
-		ob[i].display();
-		ob[i].calcGrade();
-		cout<<endl<<endl<<endl;
+		cout<<endl;
 	}
+	cout<<"\n-------------------------------------------------------------------------------------------------------------------"<<endl;
+	cout<<"\n\t\t\t\t\t MARK LIST \n";
+	cout<<"\n-------------------------------------------------------------------------------------------------------------------"<<endl;
+	cout<<"Roll no.\tName\t\tSubject 1\tSubject 2\tSubject 3\tpercentage \tGrade\n";
+	for(int i=0;i<n;i++)
+	{
+		ob[i].display();
+		cout<<endl;
+	}
+	cout<<endl;
 	return(0);
 }
 
