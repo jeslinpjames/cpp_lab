@@ -33,7 +33,7 @@ void strings::compare(strings a, strings b) {
   if (a.length > b.length) {
     cout << a.str << " is the larger string." << endl;
   } else if (b.length > a.length) {
-    cout << b.str << " is the larger stings." << endl;
+    cout << b.str << " is the larger string." << endl;
   } else
     cout << "Both strings are of equal length." << endl;
 }
