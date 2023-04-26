@@ -89,7 +89,7 @@ int main() {
   cout << "\n-------------------------------------------------------------------------------------------------------------------" << endl;
   cout << "\n\t\t\t\t\t MARK LIST \n";
   cout << "\n-------------------------------------------------------------------------------------------------------------------" << endl;
-  cout << "Roll no.\tName\t\tSubject 1\tSubject 2\tSubject 3\tpercentage \tGrade\n";
+  cout << "Roll no.\tName\t\tMaths\tComputer\tPhysics\tAverage \tGrade\n";
   for (int i = 0; i < n; i++) {
     ob[i].display();
     cout << endl;
