@@ -58,7 +58,7 @@ void Matrix::display()
 int main()
 {
     int r1,c1;
-    cout<<"Enter the number of rows and columns of the matrix : "<<endl;
+    cout<<"Enter the number of rows and columns of the matrix : ";
     cin>>r1>>c1;
     Matrix ob(r1,c1);
     cout<<"Enter the Elememts : "<<endl;
