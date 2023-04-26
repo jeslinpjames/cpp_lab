@@ -39,8 +39,9 @@ int main() {
   long s;
   cl ob;
   while ((x > 0) && (x <= 5)) {
-    cout << "Enter 1 for area of Circle" << endl << "Enter 2 for area of Rectangle" << endl << "Enter 3 for area of Square" << endl;
-    cout << "Enter 4 for area of Triangle" << endl << "Enter 5 for area of Hexagon" << endl;
+    cout << "Enter 1 for area of Circle" << endl << "Enter 2 for area of Rectangle\n";
+    cout << "Enter 3 for area of Square" << endl;
+    cout << "Enter 4 for area of Triangle" << endl << "Enter 5 for area of Hexagon\n";
     cout << "Enter any other number to exit" << endl;
     cin >> x;
     if (x == 1) {
