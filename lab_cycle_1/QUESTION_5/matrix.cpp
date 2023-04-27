@@ -30,6 +30,7 @@ class Matrix {
 
 void Matrix::accept_elements() {
   for (int i = 0; i < r; i++) {
+    cout << "Enter " << c << " elements of " << i + 1 << " row : ";
     for (int j = 0; j < c; j++) {
       cin >> a[i][j];
     }
@@ -45,12 +46,18 @@ void Matrix::display() {
 }
 int main() {
   int r1, c1;
-  cout << "Enter the number of rows and columns of the matrix : ";
-  cin >> r1 >> c1;
-  Matrix ob(r1, c1);
-  cout << "Enter the Elememts : " << endl;
-  ob.accept_elements();
-  cout << "The matrix that you have entered is : " << endl;
-  ob.display();
+  int choice = 1;
+  while (choice == 1) {
+    cout << "Enter the number of rows and columns of the matrix : ";
+    cin >> r1 >> c1;
+    Matrix ob(r1, c1);
+    cout << "Enter the Elememts : " << endl;
+    ob.accept_elements();
+    cout << "The matrix that you have entered is : " << endl;
+    ob.display();
+    cout << "Enter 1 to Continue\n";
+    cout << "Enter any other number to Exit.\n";
+    cin >> choice;
+  }
   return 0;
 }
