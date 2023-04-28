@@ -31,21 +31,21 @@ class Matrix
 		 	}
 		 	cout << "DEST" << endl;
 		 }
-		friend Matrix operator+(Matrix &p,Matrix &q);
-		friend Matrix operator*(Matrix &p,Matrix &q);	
+		friend Matrix& operator+(Matrix &p,Matrix &q);
+		friend Matrix& operator*(Matrix &p,Matrix &q);	
 		friend istream& operator>>(istream &in, Matrix &x);
 		friend ostream& operator<<(ostream &out, Matrix &x);
 };
-Matrix operator+(Matrix &p,Matrix &q)
+Matrix& operator+(Matrix &p,Matrix &q)
 {
-	Matrix x(p.r,p.c);
+	Matrix *x=new Matrix(p.r,p.c);
 	if((p.r==q.r)&&(p.c==q.c))
 	{
 		for(int i=0;i<p.r;i++)
 		{
 			for(int j=0;j<p.c;j++)
 			{
-				x.a[i][j]=p.a[i][j]+q.a[i][j];
+				x->a[i][j]=p.a[i][j]+q.a[i][j];
 			}
 		}
 	}
@@ -53,21 +53,21 @@ Matrix operator+(Matrix &p,Matrix &q)
 	{
 		cout<<"Addition of Matrix not possible. "<<endl;
 	}
-	return x;
+	return *x;
 }
-Matrix operator*(Matrix &p,Matrix &q)
+Matrix& operator*(Matrix &p,Matrix &q)
 {
-	Matrix x(p.r,q.c);
+	Matrix *x=new Matrix(p.r,q.c);
 	if(p.c==q.r)
 	{
-		for(int i=0;i<x.r;i++)
+		for(int i=0;i<x->r;i++)
 		{
-			for(int j=0;j<x.c;j++)
+			for(int j=0;j<x->c;j++)
 			{
-				x.a[i][j]=0;
+				x->a[i][j]=0;
 				for(int k=0;k<p.c;k++)
 				{
-					x.a[i][j]+=p.a[i][k]*q.a[k][j];
+					x->a[i][j]+=p.a[i][k]*q.a[k][j];
 				}
 			}
 		}
@@ -76,7 +76,7 @@ Matrix operator*(Matrix &p,Matrix &q)
 	{
 		cout<<"Multiplication of Matrix not possible. "<<endl;
 	}
-	return x;
+	return *x;
 } 
 istream& operator>>(istream &in, Matrix& x)
 {
