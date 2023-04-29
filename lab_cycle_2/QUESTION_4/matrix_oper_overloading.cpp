@@ -29,7 +29,6 @@ class Matrix
 		 			delete[] a[i];
 		 		delete[] a;
 		 	}
-		 	cout << "DEST" << endl;
 		 }
 		friend Matrix& operator+(Matrix &p,Matrix &q);
 		friend Matrix& operator*(Matrix &p,Matrix &q);	
@@ -175,10 +174,11 @@ int main()
 			cout<<"Enter your choice : ";
 			cin>>choice2;
 		}while (choice2==1);
-		cout<<endl<<endl<<endl;
-		cout<<"Enter 1 to continue, any other key to exit : ";
+		cout<<endl<<endl;
+		cout<<"Enter 1 to continue by inputing new matrices or any other any to exit : ";
 		cin>>choice;
-		cout<<endl<<endl;	
+		cout<<endl;	
 	}while(choice==1);
+	cout<<"Exiting..."<<endl;
 	return 0;
 }
