@@ -8,7 +8,7 @@ class Animal
         virtual void speak()=0;   
 };
 class Dog:public Animal
-{git
+{
     public:
     void speak()
     {
