@@ -4,7 +4,8 @@
 
 using namespace std;
 class Star {
-  protected: long Planets_around_Star,Total_Planets_around_Star;
+  protected: long Planets_around_Star,
+  Total_Planets_around_Star;
   public: Star() {}
   Star(long n1) {
     Planets_around_Star = n1;
@@ -14,7 +15,8 @@ class Star {
   }
 };
 class BlackHole {
-  protected: long Planets_around_BlackHole,Total_Planets_around_BlackHole;
+  protected: long Planets_around_BlackHole,
+  Total_Planets_around_BlackHole;
   public: BlackHole() {}
   BlackHole(long n2) {
     Planets_around_BlackHole = n2;
@@ -49,10 +51,9 @@ class Universe: public Galaxy {
     BlackHole::display();
     Star::display();
   }
-  void calculate()
-  {
-    Total_Planets_around_BlackHole=noofGalaxies*noofBlackHoles*Planets_around_BlackHole;
-    Total_Planets_around_Star=noofGalaxies*noofStars*Planets_around_Star;
+  void calculate() {
+    Total_Planets_around_BlackHole = noofGalaxies * noofBlackHoles * Planets_around_BlackHole;
+    Total_Planets_around_Star = noofGalaxies * noofStars * Planets_around_Star;
   }
 };
 int main() {
@@ -78,7 +79,7 @@ int main() {
     cout << "Enter 1 to Display,2 or any other number to Exit : ";
     cin >> option2;
     if (option2 == 1) {
-        U.calculate();
+      U.calculate();
       U.display();
       cout << endl << endl;
     } else {
