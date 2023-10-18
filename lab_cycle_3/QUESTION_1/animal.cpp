@@ -1,9 +1,6 @@
 #include<iostream>
-
 #include<string>
-
 using namespace std;
-
 class Animal {
   public: virtual void speak() = 0;
 };
